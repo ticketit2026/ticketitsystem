@@ -26,7 +26,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tickets',
+    
+    # اپ‌های جدید
+    'core',           # اپ اصلی
+    'users',          # کاربران و ورود
+    'helpdesk',       # IT Help Desk
+    'letters',        # نامه‌ها
+    'circulation',    # گردش کار
+    'meetings',       # جلسات
+    'documents',      # اسناد
+    'reports',        # داشبورد و گزارش‌ها
 ]
 
 MIDDLEWARE = [
