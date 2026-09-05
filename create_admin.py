@@ -1,20 +1,13 @@
-#!/usr/bin/env python
-import os
-import django
+from django.contrib.auth import get_user_model
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ticketsystem.settings')
-django.setup()
+User = get_user_model()
 
-from tickets.models import User
+import sys
+from django.core.management import call_command
 
 if not User.objects.filter(username='admin').exists():
-    User.objects.create_superuser(
-        username='admin',
-        email='',
-        password='admin123',
-        full_name='مدیر سیستم',
-        role='admin'
-    )
-    print("✅ کاربر ادمین ساخته شد → admin / admin123")
+    print("در حال ساخت کاربر ادمین...")
+    call_command('createsuperuser', '--noinput', username='admin', email='')
+    print("✅ کاربر ادمین ساخته شد")
 else:
-    print("کاربر admin از قبل وجود دارد.")
+    print("✅ ادمین قبلاً وجود دارد")
